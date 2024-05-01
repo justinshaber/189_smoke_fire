@@ -1,0 +1,1 @@
+# Smoke or fire is a bar game that can be played with any number of friends.
