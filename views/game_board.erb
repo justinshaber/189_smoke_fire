@@ -1,0 +1,15 @@
+<h3>Round <%= round_number %> | <%= round_name %></h3>
+
+<ol>
+  <% @players.each do |player| %>
+    <li>
+      <strong><%= player.name %></strong> <%= player.point_total %> <%= player.point_type %>
+    </li>
+  <% end %>
+</ol>
+
+<form action="/move" method="post">
+  <% round_options.each do |option| %>
+    <input type="submit" value="<%= option %>" />
+  <% end %>
+</form>

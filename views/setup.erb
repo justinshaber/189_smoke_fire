@@ -1,0 +1,29 @@
+<ol>
+  <% @players.each do |player| %>
+    <li>
+      <strong><%= player.name %></strong> <%= player.point_total %> <%= player.point_type %>
+    </li>
+  <% end %>
+</ol>
+
+<form action="/add_player" method="post">
+  <div>
+    <label for="player_name"><b>Player Name</b></label>
+    <input type="text" placeholder="<%= params[:player_name] || 'Enter Player Name' %>" name="player_name" required>
+  </div>
+  <div>
+    <input type="radio" id="drinks" name="point_type" value="drinks">
+    <label for="drinks">drinks</label><br>
+    <input type="radio" id="pushups" name="point_type" value="pushups">
+    <label for="pushups">pushups</label><br>
+    <input type="radio" id="squats" name="point_type" value="squats">
+    <label for="squats">squats</label>
+  </div>
+    <button type="submit">Add Player</button>
+</form>
+
+<% if @players.size > 0 %>
+  <form action="/game">
+    <input type="submit" value="Go to Game" />
+  </form>
+<% end %>
